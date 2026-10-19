@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rubul Gogoi — Machine Learning Engineer</title>
+<meta name="description" content="Rubul Gogoi — Machine Learning Engineer. I build production LLM systems and optimization models, and work where operations research meets large language models.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23152028'/%3E%3Ccircle cx='22' cy='21' r='3.2' fill='%233fb8a3'/%3E%3Cpath d='M5 23 Q10 6 14 16 T22 21' fill='none' stroke='%233fb8a3' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F8F7F2;
+    --raised:#FFFFFF;
+    --ink:#16222C;
+    --muted:#5B6672;
+    --line:#E5E2D8;
+    --accent:#0E6E5C;
+    --accent-ink:#0A5648;
+    --accent-wash:rgba(14,110,92,.07);
+    --maxw:70rem;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#0E151D;
+      --raised:#151E27;
+      --ink:#EAEEF1;
+      --muted:#9BA7B2;
+      --line:#223039;
+      --accent:#43BBA6;
+      --accent-ink:#67CBB8;
+      --accent-wash:rgba(67,187,166,.10);
+    }
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Inter",system-ui,-apple-system,sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1rem,5vw,3.5rem);}
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;text-underline-offset:3px;}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
+
+  h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.1;letter-spacing:-.01em;margin:0;}
+
+  /* ---- top bar ---- */
+  .topbar{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.6rem 0;font-size:.95rem;}
+  .mark{display:inline-flex;align-items:center;gap:.6rem;font-weight:600;color:var(--ink);}
+  .mark svg{display:block;}
+  .topnav{display:flex;gap:1.6rem;}
+  .topnav a{color:var(--muted);}
+  .topnav a:hover{color:var(--ink);text-decoration:none;}
+  @media (max-width:620px){.topnav{display:none;}}
+
+  /* ---- hero ---- */
+  .hero{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center;padding:clamp(2.5rem,7vw,5.5rem) 0 clamp(2rem,5vw,3.5rem);}
+  @media (max-width:760px){.hero{grid-template-columns:1fr;}}
+  .hero h1{font-size:clamp(2.6rem,7.5vw,4.6rem);font-weight:600;}
+  .hero .lede{font-size:clamp(1.12rem,2.3vw,1.4rem);color:var(--ink);max-width:30ch;margin:1.3rem 0 0;line-height:1.35;}
+  .hero .sub{color:var(--muted);max-width:46ch;margin:1.1rem 0 0;}
+  .meta-line{display:flex;flex-wrap:wrap;gap:.5rem .9rem;margin-top:1.6rem;font-size:.92rem;color:var(--muted);}
+  .meta-line span{display:inline-flex;align-items:center;gap:.5rem;}
+  .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);display:inline-block;}
+  .cta-row{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.9rem;}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.05rem;border-radius:7px;font-size:.95rem;font-weight:500;border:1px solid var(--line);color:var(--ink);background:var(--raised);}
+  .btn:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .btn.primary:hover{background:var(--accent-ink);border-color:var(--accent-ink);color:#fff;}
+  .figure{display:flex;justify-content:center;}
+  .figure figcaption{margin-top:.7rem;font-size:.8rem;color:var(--muted);text-align:center;}
+  @media (max-width:760px){.figure{justify-content:flex-start;}}
+
+  /* ---- sections ---- */
+  section{padding:clamp(2.2rem,5vw,3.6rem) 0;border-top:1px solid var(--line);}
+  .sec-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.8rem;}
+  .sec-head h2{font-size:clamp(1.5rem,3vw,2rem);}
+  .sec-head .count{color:var(--muted);font-size:.9rem;}
+
+  /* ---- work ---- */
+  .work-item{display:grid;grid-template-columns:1fr 2.2fr;gap:clamp(.6rem,3vw,2.5rem);padding:1.7rem 0;border-top:1px solid var(--line);}
+  .work-item:first-of-type{border-top:0;}
+  @media (max-width:720px){.work-item{grid-template-columns:1fr;gap:.6rem;}}
+  .work-item h3{font-size:1.3rem;}
+  .work-item h3 a{color:var(--ink);}
+  .work-item h3 a:hover{color:var(--accent);}
+  .work-kind{color:var(--muted);font-size:.9rem;margin-top:.35rem;}
+  .work-body p{margin:0 0 .9rem;}
+  .repo{font-size:.9rem;display:inline-block;}
+  .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem;}
+  .tag{font-size:.78rem;color:var(--accent-ink);background:var(--accent-wash);padding:.25rem .6rem;border-radius:100px;}
+  @media (prefers-color-scheme: dark){.tag{color:var(--accent);}}
+
+  /* ---- experience / education rows ---- */
+  .row{display:grid;grid-template-columns:1fr 2.2fr;gap:clamp(.4rem,3vw,2.5rem);padding:1.25rem 0;border-top:1px solid var(--line);}
+  .row:first-of-type{border-top:0;}
+  @media (max-width:720px){.row{grid-template-columns:1fr;gap:.3rem;}}
+  .row .when{color:var(--muted);font-size:.92rem;}
+  .row h3{font-size:1.1rem;font-family:"Inter",sans-serif;font-weight:600;letter-spacing:0;}
+  .row .org{color:var(--accent-ink);font-size:.95rem;margin-top:.1rem;}
+  @media (prefers-color-scheme: dark){.row .org{color:var(--accent);}}
+  .row p{margin:.55rem 0 0;color:var(--muted);}
+
+  /* ---- skills ---- */
+  .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,3vw,2.2rem);}
+  @media (max-width:720px){.skills{grid-template-columns:1fr;}}
+  .skill-group h3{font-size:1.02rem;font-family:"Inter",sans-serif;font-weight:600;letter-spacing:0;margin-bottom:.6rem;}
+  .skill-group ul{list-style:none;margin:0;padding:0;}
+  .skill-group li{padding:.3rem 0;border-bottom:1px solid var(--line);color:var(--muted);font-size:.95rem;}
+  .skill-group li:last-child{border-bottom:0;}
+
+  /* ---- contact ---- */
+  .contact p{max-width:48ch;color:var(--muted);}
+  .contact-links{display:flex;flex-wrap:wrap;gap:.8rem 2rem;margin-top:1.3rem;font-size:1.02rem;}
+  .contact-links a{color:var(--ink);}
+  .contact-links a:hover{color:var(--accent);}
+
+  footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--muted);font-size:.85rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+  /* ---- inline svg coloring (presentation attrs can't read css vars) ---- */
+  .mark-logo .bg{fill:var(--ink);}
+  .mark-logo .fg-fill{fill:var(--accent);}
+  .mark-logo .fg-stroke{fill:none;stroke:var(--accent);}
+  .plot .axis,.plot .grid{stroke:var(--line);}
+  .plot .curve{stroke:var(--accent);fill:none;}
+  .plot .pt{fill:var(--accent);}
+  .plot .ring,.plot .guide{stroke:var(--accent);fill:none;}
+
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{opacity:0;transform:translateY(10px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards;}
+    .reveal.d1{animation-delay:.05s}.reveal.d2{animation-delay:.14s}.reveal.d3{animation-delay:.23s}
+    @keyframes rise{to{opacity:1;transform:none;}}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <span class="mark">
+      <svg class="mark-logo" width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><rect class="bg" width="32" height="32" rx="7"/><circle class="fg-fill" cx="22" cy="21" r="3.2"/><path class="fg-stroke" d="M5 23 Q10 6 14 16 T22 21" stroke-width="2" stroke-linecap="round"/></svg>
+      Rubul Gogoi
+    </span>
+    <nav class="topnav">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <header class="hero">
+    <div>
+      <h1 class="reveal">Rubul Gogoi</h1>
+      <p class="lede reveal d1">Machine Learning Engineer working where operations research meets large language models.</p>
+      <p class="sub reveal d2">I build production LLM systems — RAG, tool-calling, model serving — on a foundation of statistics and optimization. I like turning messy, ambiguous problems into models that actually ship.</p>
+      <div class="meta-line reveal d2">
+        <span><i class="dot"></i> M.Sc. Operations Research, IIT Bombay</span>
+        <span><i class="dot"></i> ML Engineer @ Mihup</span>
+      </div>
+      <div class="cta-row reveal d3">
+        <a class="btn primary" href="mailto:gogoirubul27@gmail.com">Email me</a>
+        <a class="btn" href="https://github.com/rubul27" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <figure class="figure reveal d3">
+      <div>
+      <svg class="plot" width="260" height="190" viewBox="0 0 260 190" role="img" aria-label="A convergence curve settling to an optimum">
+        <g class="axis" stroke-width="1">
+          <line x1="34" y1="18" x2="34" y2="158"/>
+          <line x1="34" y1="158" x2="244" y2="158"/>
+        </g>
+        <g class="grid" stroke-width="1" stroke-dasharray="2 5" opacity=".8">
+          <line x1="34" y1="60" x2="244" y2="60"/>
+          <line x1="34" y1="109" x2="244" y2="109"/>
+        </g>
+        <path class="curve" d="M40 30 L62 140 L84 58 L104 128 L122 86 L140 116 L156 98 L172 110 L188 103 L206 108 L244 108"
+              stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+        <line class="guide" x1="206" y1="108" x2="244" y2="108" stroke-width="1" stroke-dasharray="3 3" opacity=".5"/>
+        <circle class="pt" cx="244" cy="108" r="4.5"/>
+        <circle class="ring" cx="244" cy="108" r="9" stroke-width="1.3" opacity=".45"/>
+      </svg>
+      <figcaption>Converging to the optimum.</figcaption>
+      </div>
+    </figure>
+  </header>
+
+  <section id="work">
+    <div class="sec-head"><h2>Selected work</h2><span class="count">Three projects, code on GitHub</span></div>
+
+    <article class="work-item">
+      <div>
+        <h3><a href="https://github.com/rubul27/give_me_some_credit" target="_blank" rel="noopener">Credit Risk Scorecard</a></h3>
+        <p class="work-kind">Probability-of-default modeling</p>
+      </div>
+      <div class="work-body">
+        <p>A probability-of-default model on 150K borrowers, built the way credit teams build them: WOE/IV feature engineering, logistic regression benchmarked against LightGBM, and evaluation on the metrics lenders actually use — AUC, Gini, and KS — with SHAP reason codes. Test AUC 0.87, with a clear interpretability-vs-accuracy trade-off.</p>
+        <a class="repo" href="https://github.com/rubul27/give_me_some_credit" target="_blank" rel="noopener">github.com/rubul27/give_me_some_credit</a>
+        <div class="tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">LightGBM</span><span class="tag">SHAP</span><span class="tag">optbinning</span></div>
+      </div>
+    </article>
+
+    <article class="work-item">
+      <div>
+        <h3><a href="https://github.com/rubul27/llm_edge_quant" target="_blank" rel="noopener">On-Device LLM Quantization</a></h3>
+        <p class="work-kind">Edge inference on a Snapdragon NPU</p>
+      </div>
+      <div class="work-body">
+        <p>Quantized Qwen2.5-0.5B across FP16, INT8, and INT4 and profiled it on a real Snapdragon 8 Gen 3 NPU via Qualcomm AI Hub. Mapped the quality-vs-memory trade-off and found Q4_K_M as the ship point — 2.5× smaller for +3.3% perplexity, against +14.9% for naive INT4.</p>
+        <a class="repo" href="https://github.com/rubul27/llm_edge_quant" target="_blank" rel="noopener">github.com/rubul27/llm_edge_quant</a>
+        <div class="tags"><span class="tag">PyTorch</span><span class="tag">Quantization</span><span class="tag">Qualcomm AI Hub</span><span class="tag">Edge ML</span></div>
+      </div>
+    </article>
+
+    <article class="work-item">
+      <div>
+        <h3><a href="https://github.com/rubul27/Systemic_dynamic_modelling_vensim" target="_blank" rel="noopener">Ripple Effect in Supply Chains</a></h3>
+        <p class="work-kind">System-dynamics simulation</p>
+      </div>
+      <div class="work-body">
+        <p>A system-dynamics model (Vensim) of a five-stage supply chain that measures how disruptions propagate — the ripple effect — and which nodes become most vulnerable, across four disruption scenarios compared to a baseline. M.Sc. Phase I project at IIT Bombay.</p>
+        <a class="repo" href="https://github.com/rubul27/Systemic_dynamic_modelling_vensim" target="_blank" rel="noopener">github.com/rubul27/Systemic_dynamic_modelling_vensim</a>
+        <div class="tags"><span class="tag">System Dynamics</span><span class="tag">Vensim</span><span class="tag">Simulation</span><span class="tag">Supply Chain</span></div>
+      </div>
+    </article>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head"><h2>Experience</h2></div>
+
+    <div class="row">
+      <div><div class="when">Oct 2025 — Present</div></div>
+      <div>
+        <h3>Machine Learning Engineer</h3>
+        <div class="org">Mihup Communications</div>
+        <p>Build production LLM systems: a multimodal RAG pipeline with hybrid retrieval and reranking, a multilingual tool-selection pipeline for a tool-calling assistant, and self-hosted model serving tuned for latency on vLLM.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div><div class="when">Jul 2025 — Aug 2025</div></div>
+      <div>
+        <h3>Machine Learning &amp; Optimization Intern</h3>
+        <div class="org">Findability Sciences</div>
+        <p>Built a data-driven multi-objective optimization framework for a large-scale sugarcane milling process, finding operating set-points that balance grinding capacity, energy per ton, and sucrose extraction.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sec-head"><h2>Education</h2></div>
+    <div class="row">
+      <div><div class="when">2023 — 2025</div></div>
+      <div>
+        <h3>M.Sc. in Industrial Engineering &amp; Operations Research</h3>
+        <div class="org">Indian Institute of Technology Bombay</div>
+      </div>
+    </div>
+    <div class="row">
+      <div><div class="when">2019 — 2022</div></div>
+      <div>
+        <h3>B.Sc. in Mathematical Statistics</h3>
+        <div class="org">B. Borooah College, Guwahati</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head"><h2>Skills</h2></div>
+    <div class="skills">
+      <div class="skill-group">
+        <h3>Optimization &amp; OR</h3>
+        <ul>
+          <li>LP / MIP modeling</li>
+          <li>Network &amp; combinatorial optimization</li>
+          <li>Pyomo, GLPK, CBC</li>
+          <li>Heuristics &amp; simulation (Vensim)</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>ML &amp; Generative AI</h3>
+        <ul>
+          <li>LLMs, RAG, retrieval &amp; reranking</li>
+          <li>Tool-calling / agentic systems</li>
+          <li>Predictive modeling (LightGBM, SHAP)</li>
+          <li>PyTorch, model serving (vLLM)</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Engineering</h3>
+        <ul>
+          <li>Python, SQL, Go</li>
+          <li>Docker, Kubernetes, AWS</li>
+          <li>PostgreSQL, Jenkins, Git</li>
+          <li>Statistics &amp; experimentation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="sec-head"><h2>Get in touch</h2></div>
+    <p>Open to Machine Learning, Data Science, and Operations Research roles. The fastest way to reach me is email.</p>
+    <div class="contact-links">
+      <a href="mailto:gogoirubul27@gmail.com">gogoirubul27@gmail.com</a>
+      <a href="https://github.com/rubul27" target="_blank" rel="noopener">github.com/rubul27</a>
+      <a href="tel:+918638748755">+91 8638748755</a>
+      <!-- Add your LinkedIn here, e.g.: <a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener">LinkedIn</a> -->
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Rubul Gogoi</span>
+    <span>Built and hosted on GitHub Pages</span>
+  </footer>
+
+</div>
+</body>
+</html>
